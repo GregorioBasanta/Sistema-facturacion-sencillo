@@ -19,21 +19,29 @@ export class ClientesController {
 
   getClientesById = async (req, res) => {
     try {
-      console.log(req.params.id);
       const id = parseInt(req.params.id);
       const responseBody = await this.clientesService.getClientesById(id);
-      console.log(responseBody);
-
-      if (!responseBody) {
-        return res.status(404).json({ message: "Cliente no encontrado" });
-      }
-
+      
       res.status(200).json(responseBody);
     } 
     catch (error) {
       this.manejarErrores(res, error);
     }
   };
+
+  getFacturasForClientes = async(req, res) => {
+    console.log("entre a getFacturasForClientes");  
+    try {
+      const id = parseInt(req.params.id);
+      const responseBody = await this.clientesService.getFacturasForClientes(id);
+      console.log(responseBody);
+
+      res.status(200).json(responseBody);
+    } 
+    catch (error) {
+      this.manejarErrores(res, error);
+    }
+  }
 
   postClientes = async (req, res) => {
     try {
@@ -42,7 +50,7 @@ export class ClientesController {
       console.log(responseBody);
     } 
     catch (error) {
-      res.status(500).json({ message: "Error al obtener clientes" });
+      this.manejarErrores(res, error);
     }
   }
 
@@ -50,6 +58,7 @@ export class ClientesController {
     try{
       const id = parseInt(req.params.id);
       const responseBody = await this.clientesService.putClientes(id, req.body);
+      console.log(responseBody);
       res.status(200).json(responseBody);      
     }
     catch (error) {

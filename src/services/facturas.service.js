@@ -5,6 +5,7 @@ import { ClientesService }  from "./clientes.service.js";
 export class FacturasService{
     constructor() {
         this.facturas = FacturasMock;
+        this.nextId = this.facturas.length + 1;
     }
 
     async getFacturas() {
@@ -23,13 +24,12 @@ export class FacturasService{
     }
 
     async postFacturas(body){
-        const newId = this.facturas.length + 1;
         const clienteService = new ClientesService();
         const id = parseInt(body.clienteId);
-        const cliente = clienteService.clientes.find(c => c.id === id);
+        const cliente = await clienteService.getClientesById(id);
 
         const factura = new FacturaModel(
-            newId,
+            this.nextId++,
             cliente,
             body.fecha,
             body.monto
@@ -39,18 +39,6 @@ export class FacturasService{
         return factura;
     }
 
-    async putFacturas(id, body){
-        const factura = this.facturas.find(c => c.id === id);
-        if (!factura) {
-            const error = new Error("Factura no encontrado");
-            error.code = 404;
-            throw error;
-        }
-        Object.assign(factura, body);
-        return factura;
-    }
-
-    
     async deleteFacturas(id){
         //index va a ser -1 si no encuentra el id
         const index = this.facturas.findIndex(c => c.id === id);

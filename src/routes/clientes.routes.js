@@ -6,6 +6,7 @@ const clientesController = new ClientesController();
 
 router.get("/", clientesController.getClientes);
 router.get('/:id', clientesController.getClientesById);
+router.get('/:id/facturas', clientesController.getFacturasForClientes);
 
 router.post("/", clientesController.postClientes);
 

@@ -9,8 +9,6 @@ router.get('/:id', facturasController.getFacturasById);
 
 router.post("/", facturasController.postFacturas);
 
-router.put("/:id", facturasController.putFacturas);
-
 router.delete("/:id", facturasController.deleteFacturas);
 
 export default router;

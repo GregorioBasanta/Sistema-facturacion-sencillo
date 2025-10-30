@@ -46,17 +46,6 @@ export class FacturasController {
     }
   }
 
-  putFacturas = async (req, res) => {
-    try{
-      const id = parseInt(req.params.id);
-      const responseBody = await this.facturasService.putFacturas(id, req.body);
-      res.status(200).json(responseBody);      
-    }
-    catch (error) {
-      this.manejarErrores(res, error);
-    }
-  }
-
   deleteFacturas = async(req, res) => {
     try{
       const id = parseInt(req.params.id);
