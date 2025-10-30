@@ -45,7 +45,7 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "dni": "98765432",
         "cuil": "20-98765432-1",
         "direccion": "Av. Libertador 456",
-        "abono": null
+        "abonoId": 1
     }
 
 - **PUT /api/clientes/:id**
