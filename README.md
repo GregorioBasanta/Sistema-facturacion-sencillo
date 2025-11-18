@@ -6,9 +6,6 @@ El sistema permite gestionar clientes y generar facturas con la informacion del 
 ## 🚀 Tecnologías
 - **Lenguaje:** JavaScript (Node.js)
 - **Framework:** Express.js 
-- **Base de datos:** PostgreSQL (dockerizada). Para mas adelante, en principio seran mockeados los datos
-- **ORM recomendado:** Prisma ORM
-- **Contenedores:** Docker + Docker Compose. Para mas adelante, en principio no voy a dockerizar nada
 
 ## 📌 Entidades principales
 
@@ -19,10 +16,6 @@ El sistema permite gestionar clientes y generar facturas con la informacion del 
 - **Abonos**  
   Planes de internet ofrecidos por el negocio, con precio y características.
 
-### En primera instancia no estara aplicado, solo me centrare en los clientes con abonos mensulares.
-- **Productos**  
-  Ítems adicionales que el cliente puede comprar (equipos, accesorios, etc.).
-
 ## 📂 Endpoints (MVP inicial)
 
 En esta primera versión solo se implementará el **CRUD de clientes y la solicitud de una factura**.
@@ -31,57 +24,102 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
 
 - **GET /api/clientes**  
   → Lista todos los clientes.
+<img width="993" height="818" alt="image" src="https://github.com/user-attachments/assets/991af2ca-1acb-4f6b-b381-3c180fec105e" />
+
 
 - **GET /api/clientes/:id**  
   → Obtiene un cliente por ID.
+<img width="998" height="509" alt="image" src="https://github.com/user-attachments/assets/ba541ee8-8149-4fa1-a5a3-a77af237614f" />
+
 
 - **POST /api/clientes**  
   → Crea un nuevo cliente.  
    **Body ejemplo**:
   ```json
     {
-        "nombre": "Ana",
-        "apellido": "Gómez",
-        "dni": "98765432",
-        "cuil": "20-98765432-1",
+        "nombre": "Juan Pedro",
+        "apellido": "Martinez",
+        "dni": "27861395",
+        "cuil": "20-27861395-1",
         "direccion": "Av. Libertador 456",
-        "abono": null
+        "abono": 1
     }
+
+<img width="980" height="775" alt="image" src="https://github.com/user-attachments/assets/3739082a-8502-4138-a826-f1edb666f1b3" />
 
 - **PUT /api/clientes/:id**
   → Actualiza un cliente existente.
+  **Body ejemplo**:
+  ```json
+    {
+        "nombre": "Juan Pedro",
+        "apellido": "Martinez Perez",
+        "dni": "27861395",
+        "cuil": "20-27861395-1",
+        "direccion": "Jualian Alvarez y Guemes",
+        "abono": 3
+    }
+
+<img width="959" height="783" alt="image" src="https://github.com/user-attachments/assets/46da92e0-8d2e-4556-b8b5-1d3b89bffff7" />
 
 - **DELETE /api/clientes/:id**
   → Elimina un cliente.
+  <img width="969" height="306" alt="image" src="https://github.com/user-attachments/assets/56ab8c25-11ba-4e2d-acd0-5f81f5435854" />
 
+  Hago un **GET /api/clientes/3** para mostrar que se elimino
+
+  <img width="968" height="351" alt="image" src="https://github.com/user-attachments/assets/54e227b5-80ac-40dd-bb9f-1dbbbd80ee06" />
+
+-**GET /api/clientes/:id/facturas**
+  ->Me trae las facturas que tiene registradas el cliente con ese ID. (No llega a mostrar completa la segunda factura. Esa ademas no esta mockeada, la agregue al probar el endpoint de **POST /api/facturas** 
+<img width="978" height="807" alt="image" src="https://github.com/user-attachments/assets/f993c4c3-1713-4bd9-968f-74b50428b2ce" />
 
 - **GET /api/facturas**  
   → Lista todas las facturas.
+  <img width="968" height="801" alt="image" src="https://github.com/user-attachments/assets/f4cc12a9-9102-47d8-a374-77f68e067386" />
+(me quedo corta el screen, no llego a mostrar la segunda factura completa)
 
-- **GET /api/facturas/:id**    //En principio esta echo por el ID de la factura, habria que cambiarlo al DNI o CUIL del cliente, y un rango de fechas
+- **GET /api/facturas/:id** 
   → Obtiene una factura por ID.
+<img width="981" height="711" alt="image" src="https://github.com/user-attachments/assets/e0ebba4e-4a84-461f-a098-f66a6ea28f1e" />
 
 - **POST /api/facturas**  
-  → Crea una nueva factura.  
+  → Crea una nueva factura. Busco un cliente por ID para asociarlo con todos sus datos y no solo el ID
    **Body ejemplo**:
   ```json
     {
-        "cliente": 1,                          //Busca el cliente por el ID
-        "fecha": "2025-10-01T00:00:00.000Z",
-        "monto": 1200
+        "clienteId": 1,
+        "fecha": "2025-10-01T00:00:00.000Z"
     }
+  
+<img width="971" height="797" alt="image" src="https://github.com/user-attachments/assets/f708300c-1998-4b8a-9dca-d1d5fd2f5416" />
 
-- **PUT /api/facturas/:id**
-  → Actualiza una factura existente.
+- **No hago PUT de facturas, porque estas no se deberian poder cambiar** 
 
 - **DELETE /api/facturas/:id**
   → Elimina una factura.
+  <img width="974" height="318" alt="image" src="https://github.com/user-attachments/assets/544a4a85-1a64-465f-b50c-0e2ea493fbf9" />
+    Hago un **GET /api/clientes/3** para mostrar que se elimino
+  <img width="972" height="351" alt="image" src="https://github.com/user-attachments/assets/a5bc0f60-1bb5-4e9f-9d37-0f750928336d" />
+
+## 🚀 Ejecucion de la API
+  ->**Si se tiene el archivo package.json**
+    -Solo se debe hacer el comando:
+      npm install
+      
+  ->**Si no se tiene el archivo package.json**
+   
+    -Instalar Express, nodemon y npm. Comandos:
+    
+      npm install express
+    
+      npm install nodemon --save-dev
+      
+      npm install
+    
+    -Otras dependencias
+    
+      npm install cors dotenv morgan uuid
 
 
-###  📈 Futuras mejoras
-- Añadir mas clases como productos, por ejemplo.
-- Implementar endpoints para Facturas, Abonos y Productos.
-- Autenticación con JWT.
-- Frontend para gestión visual.
-- Reportes en PDF de facturas.
-- Facturacion electronica con AFIP
+  
