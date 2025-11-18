@@ -9,7 +9,6 @@ export class FacturasService{
     }
 
     async getFacturas() {
-        console.log(this.facturas);
         return this.facturas;
     }
 
@@ -27,15 +26,15 @@ export class FacturasService{
         const clienteService = new ClientesService();
         const id = parseInt(body.clienteId);
         const cliente = await clienteService.getClientesById(id);
+        const monto = cliente.abono.monto;
 
         const factura = new FacturaModel(
             this.nextId++,
             cliente,
             body.fecha,
-            body.monto
+            monto
         );
         this.facturas.push(factura);
-        console.table(this.facturas);
         return factura;
     }
 

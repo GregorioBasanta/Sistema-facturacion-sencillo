@@ -42,7 +42,7 @@ export class FacturasController {
       console.log(responseBody);
     } 
     catch (error) {
-      res.status(500).json({ message: "Error al obtener las facturas" });
+      this.manejarErrores(res, error);
     }
   }
 
