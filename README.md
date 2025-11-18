@@ -44,6 +44,7 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "direccion": "Av. Libertador 456",
         "abono": 1
     }
+  
   <img width="980" height="775" alt="image" src="https://github.com/user-attachments/assets/3739082a-8502-4138-a826-f1edb666f1b3" />
 
 - **PUT /api/clientes/:id**
@@ -58,6 +59,7 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "direccion": "Jualian Alvarez y Guemes",
         "abono": 3
     }
+  
   <img width="959" height="783" alt="image" src="https://github.com/user-attachments/assets/46da92e0-8d2e-4556-b8b5-1d3b89bffff7" />
 
 - **DELETE /api/clientes/:id**
@@ -87,6 +89,7 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "clienteId": 1,
         "fecha": "2025-10-01T00:00:00.000Z"
     }
+  
 <img width="971" height="797" alt="image" src="https://github.com/user-attachments/assets/f708300c-1998-4b8a-9dca-d1d5fd2f5416" />
 
 - **No hago PUT de facturas, porque estas no se deberian poder cambiar** 
@@ -103,11 +106,18 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
       npm install
       
   ->**Si no se tiene el archivo package.json**
+   
     -Instalar Express, nodemon y npm. Comandos:
+    
       npm install express
+    
       npm install nodemon --save-dev
+      
       npm install
+    
     -Otras dependencias
+    
       npm install cors dotenv morgan uuid
+
 
   
