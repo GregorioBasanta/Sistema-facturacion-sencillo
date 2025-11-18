@@ -64,8 +64,10 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
 
 - **DELETE /api/clientes/:id**
   → Elimina un cliente.
-<img width="969" height="306" alt="image" src="https://github.com/user-attachments/assets/56ab8c25-11ba-4e2d-acd0-5f81f5435854" />
+  <img width="969" height="306" alt="image" src="https://github.com/user-attachments/assets/56ab8c25-11ba-4e2d-acd0-5f81f5435854" />
+
   Hago un **GET /api/clientes/3** para mostrar que se elimino
+
   <img width="968" height="351" alt="image" src="https://github.com/user-attachments/assets/54e227b5-80ac-40dd-bb9f-1dbbbd80ee06" />
 
 -**GET /api/clientes/:id/facturas**
