@@ -24,7 +24,7 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
 
 - **GET /api/clientes**  
   → Lista todos los clientes.
-  <img width="993" height="818" alt="image" src="https://github.com/user-attachments/assets/991af2ca-1acb-4f6b-b381-3c180fec105e" />
+<img width="993" height="818" alt="image" src="https://github.com/user-attachments/assets/991af2ca-1acb-4f6b-b381-3c180fec105e" />
 
 
 - **GET /api/clientes/:id**  
@@ -44,8 +44,8 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "direccion": "Av. Libertador 456",
         "abono": 1
     }
-  
-  <img width="980" height="775" alt="image" src="https://github.com/user-attachments/assets/3739082a-8502-4138-a826-f1edb666f1b3" />
+
+<img width="980" height="775" alt="image" src="https://github.com/user-attachments/assets/3739082a-8502-4138-a826-f1edb666f1b3" />
 
 - **PUT /api/clientes/:id**
   → Actualiza un cliente existente.
@@ -59,8 +59,8 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
         "direccion": "Jualian Alvarez y Guemes",
         "abono": 3
     }
-  
-  <img width="959" height="783" alt="image" src="https://github.com/user-attachments/assets/46da92e0-8d2e-4556-b8b5-1d3b89bffff7" />
+
+<img width="959" height="783" alt="image" src="https://github.com/user-attachments/assets/46da92e0-8d2e-4556-b8b5-1d3b89bffff7" />
 
 - **DELETE /api/clientes/:id**
   → Elimina un cliente.
