@@ -107,19 +107,15 @@ En esta primera versión solo se implementará el **CRUD de clientes y la solici
     -Solo se debe hacer el comando:
       npm install
       
-  ->**Si no se tiene el archivo package.json**
-   
-    -Instalar Express, nodemon y npm. Comandos:
-    
-      npm install express
-    
-      npm install nodemon --save-dev
-      
+  ->**Si se tiene el archivo package.json**
+    -Solo se debe hacer el comando:
       npm install
-    
-    -Otras dependencias
-    
-      npm install cors dotenv morgan uuid
+
+    -Para correrlo
+
+      node src/server.js
+
+    -O si bajas todo desde la repo, se puede correr con f5
 
 
   
